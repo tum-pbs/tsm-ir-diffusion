@@ -1,5 +1,7 @@
 # Improved Sampling Of Diffusion Models In Fluid Dynamics With Tweedie's Formula
 
+This repository implements the methods from our paper, ["Improved Sampling of Diffusion Models in Fluid Dynamics With Tweedie's Formula,"](https://openreview.net/forum?id=0FbzC7B9xI) by Youssef Shehata, Benjamin Holzschuh, and Nils Thuerey, presented at ICLR 2025.
+
 <strong>Abstract</strong>
 
 State-of-the-art Denoising Diffusion Probabilistic Models (DDPMs) rely on an expensive sampling process with a large Number of Function Evaluations (NFEs) to provide high-fidelity predictions. This computational bottleneck renders diffusion models less appealing as surrogates for the spatio-temporal prediction of physics-based problems with long rollout horizons. We propose Truncated Sampling Models, enabling single-step and few-step sampling with elevated fidelity by simple truncation of the diffusion process, reducing the gap between DDPMs and deterministic single-step approaches. We also introduce a novel approach, Iterative Refinement, to sample pre-trained DDPMs by reformulating the generative process as a refinement process with few sampling steps. Both proposed methods enable significant improvements in accuracy compared to DDPMs, DDIMs, and EDMs with NFEs ≤ 10 on a diverse set of experiments, including incompressible and compressible turbulent flow and airfoil flow uncertainty simulations. Our proposed methods provide stable predictions for long rollout horizons in time-dependent problems and are able to learn all modes of the data distribution in steady-state problems with high uncertainty.
@@ -152,3 +154,22 @@ For **Air One**, the downloaded files show be saved at `datasets/airfoil/1_param
     url={https://github.com/tum-pbs/Diffusion-based-Flow-Prediction/}
 }
 ```
+
+---
+
+## Citation
+
+If you find this work useful, please cite our paper: 
+
+```
+@inproceedings{
+shehata2025improved,
+title={Improved Sampling Of Diffusion Models In Fluid Dynamics With Tweedie's Formula},
+author={Youssef Shehata and Benjamin Holzschuh and Nils Thuerey},
+booktitle={The Thirteenth International Conference on Learning Representations},
+year={2025},
+url={https://openreview.net/forum?id=0FbzC7B9xI}
+}
+```
+
+ We welcome contributions and feedback!
