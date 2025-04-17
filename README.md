@@ -2,6 +2,11 @@
 
 This repository implements the methods from our paper, ["Improved Sampling of Diffusion Models in Fluid Dynamics With Tweedie's Formula,"](https://openreview.net/forum?id=0FbzC7B9xI) by Youssef Shehata, Benjamin Holzschuh, and Nils Thuerey, presented at ICLR 2025.
 
+<p align="center">
+  <img src="./tsm-ir-diffusion.png" alt="Description" style="width:100%;"/>
+</p>
+
+
 <strong>Abstract</strong>
 
 State-of-the-art Denoising Diffusion Probabilistic Models (DDPMs) rely on an expensive sampling process with a large Number of Function Evaluations (NFEs) to provide high-fidelity predictions. This computational bottleneck renders diffusion models less appealing as surrogates for the spatio-temporal prediction of physics-based problems with long rollout horizons. We propose Truncated Sampling Models, enabling single-step and few-step sampling with elevated fidelity by simple truncation of the diffusion process, reducing the gap between DDPMs and deterministic single-step approaches. We also introduce a novel approach, Iterative Refinement, to sample pre-trained DDPMs by reformulating the generative process as a refinement process with few sampling steps. Both proposed methods enable significant improvements in accuracy compared to DDPMs, DDIMs, and EDMs with NFEs ≤ 10 on a diverse set of experiments, including incompressible and compressible turbulent flow and airfoil flow uncertainty simulations. Our proposed methods provide stable predictions for long rollout horizons in time-dependent problems and are able to learn all modes of the data distribution in steady-state problems with high uncertainty.
@@ -59,7 +64,7 @@ The following table summarizes all configuration files that can recreate the res
 
 ## Training
 
-The following table summarizes all configuration files to train models for all test cases.
+The following list summarizes all configuration files to train models for all test cases.
 
 - **Tra**: `configs/configs_training/tra.ini` and `configs/configs_training/tra_EDM.ini`
 - **Fturb**: `configs/configs_training/fturb.ini`, `configs/configs_training/fturb_baseline.ini`, and `configs/configs_training/fturb_EDM.ini`
@@ -125,7 +130,7 @@ python datasets/fturb_generation.py
 
 This will generate the entire dataset in 128x128 reslution and with each frame (of 2 velocity channels) saved to one file. Afterwards, downsample to 64x64 and save the files in combined formats for faster loading. All files should be stored at `/datasets/`.
 
-For the training dataset, save each of the following should have the shape `(240, 51, 2, 64, 64)` and with file names:
+For the training dataset, each of the following should have the shape `(240, 51, 2, 64, 64)` and with file names:
 
 * `kolmogorov_res64_cfl0.7_re200_seeds0-599.npy`
 * `kolmogorov_res64_cfl0.7_re1000_seeds0-599.npy`
